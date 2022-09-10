@@ -1,11 +1,13 @@
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Bromix.Blazor.BrowserAPI.Example.Data;
+using Bromix.Blazor.BrowserAPI.Extensions.Microsoft.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services
+    .AddBrowserApi()
+    .AddClipboardService();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 

@@ -1,0 +1,19 @@
+﻿@page "/clipboard"
+@inject IClipboardService ClipboardService
+
+<PageTitle>Clipboard</PageTitle>
+
+<h1>Result</h1>
+
+<p role="status">Current text: @text</p>
+
+<button class="btn btn-primary" @onclick="WriteToClipboard">Click me</button>
+
+@code {
+    private string text = "";
+    private async Task WriteToClipboard()
+    {
+        await ClipboardService.WriteText("Hello World");
+        text = await ClipboardService.ReadText();
+    }
+}
