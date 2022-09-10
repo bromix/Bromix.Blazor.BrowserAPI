@@ -6,6 +6,24 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Title>Bromix.Blazor.BrowserAPI</Title>
+    <Description>Thin wrapper around the browser API</Description>
+    <Copyright>Copyright bromix</Copyright>
+    <Authors>bromix</Authors>
+    <PackageVersion>0.0.1-alpha-1</PackageVersion>
+    <PackageProjectUrl>https://github.com/bromix/Bromix.Blazor.BrowserAPI</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bromix/Bromix.Blazor.BrowserAPI</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Blazor Razor Browser API Storage History Clipboard</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <None Include="../README.md" Pack="true" PackagePath="/"/>
+      <None Include="../LICENSE" Pack="true" PackagePath="/"/>
+  </ItemGroup>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
