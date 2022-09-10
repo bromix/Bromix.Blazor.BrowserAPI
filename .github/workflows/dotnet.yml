@@ -1,0 +1,34 @@
+name: .NET
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "dev" ]
+  pull_request:
+    branches: [ "dev" ]
+
+env:
+  VersionAppendix: -alpha-${{ github.run_number }}
+  Version: 0.0.1
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build -c Release -p:Version=${{ env.Version }}${{ env.VersionAppendix }}
+      - name: Test
+        run: dotnet pack -c Release -p:Version=${{ env.Version }}${{ env.VersionAppendix }}
+      - name: Provide download
+        uses: actions/upload-artifact@v3
+        with:
+          name: nugetpackage
+          path: '**/*.nupkg'
