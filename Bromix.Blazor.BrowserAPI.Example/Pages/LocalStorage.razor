@@ -1,0 +1,21 @@
+﻿@page "/local-storage"
+@inject ILocalStorageService LocalStorageService
+
+<PageTitle>Clipboard</PageTitle>
+
+<h1>Result</h1>
+
+<p role="status">Current text: @_text</p>
+
+<button class="btn btn-primary" @onclick="SetItem">Click me</button>
+
+@code {
+    private string? _text;
+
+    private async Task SetItem()
+    {
+        await LocalStorageService.SetItem("Say", "Hello World");
+        _text = await LocalStorageService.GetItem("Say");
+    }
+
+}

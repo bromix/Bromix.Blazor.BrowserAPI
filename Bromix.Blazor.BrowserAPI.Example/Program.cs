@@ -8,7 +8,8 @@ builder.Services.AddRazorPages();
 builder.Services
     .AddBrowserApi()
     .AddClipboardService()
-    .AddHistoryService();
+    .AddHistoryService()
+    .AddLocalStorageService();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 

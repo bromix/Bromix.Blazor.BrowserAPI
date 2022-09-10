@@ -21,5 +21,17 @@ internal class BrowserApiBuilder : IBrowserApiBuilder
         return this;
     }
 
+    public IBrowserApiBuilder AddLocalStorageService()
+    {
+        _services.AddScoped<ILocalStorageService, LocalStorageService>();
+        return this;
+    }
+
+    public IBrowserApiBuilder AddSessionStorageService()
+    {
+        _services.AddScoped<ISessionStorageService, SessionStorageService>();
+        return this;
+    }
+
     private readonly IServiceCollection _services;
 }
