@@ -58,10 +58,36 @@ internal abstract class AbstractStorage : IStorage
         }
     }
 
-    private string StorageSetItem => $"window.{_storageName}.setItem";
-    private string StorageGetItem => $"window.{_storageName}.getItem";
-    private string StorageRemoveItem => $"window.{_storageName}.removeItem";
-    private string StorageClear => $"window.{_storageName}.clear";
+    public ValueTask<int> GetLength(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return _jsRuntime.InvokeAsync<int>("eval", cancellationToken, StorageGetLength);
+        }
+        catch (JSException e)
+        {
+            throw new BrowserApiCallToFunctionException(StorageGetLength, e);
+        }
+    }
+
+    public ValueTask<IEnumerable<string>> GetKeys(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            return _jsRuntime.InvokeAsync<IEnumerable<string>>("eval", cancellationToken, StorageGetKeys);
+        }
+        catch (JSException e)
+        {
+            throw new BrowserApiCallToFunctionException(StorageGetKeys, e);
+        }
+    }
+
+    private string StorageSetItem => $"{_storageName}.setItem";
+    private string StorageGetItem => $"{_storageName}.getItem";
+    private string StorageRemoveItem => $"{_storageName}.removeItem";
+    private string StorageClear => $"{_storageName}.clear";
+    private string StorageGetLength => $"{_storageName}.length";
+    private string StorageGetKeys => $"Object.keys({_storageName})";
     private readonly IJSRuntime _jsRuntime;
     private readonly string _storageName;
 }

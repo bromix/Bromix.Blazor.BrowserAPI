@@ -33,4 +33,18 @@ public interface IStorage
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     ValueTask RemoveItem(string key, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns the length of the storage.
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    ValueTask<int> GetLength(CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns a list of available keys.
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    ValueTask<IEnumerable<string>> GetKeys(CancellationToken cancellationToken = default);
 }

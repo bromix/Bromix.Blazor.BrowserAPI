@@ -5,17 +5,24 @@
 
 <h1>Result</h1>
 
-<p role="status">Current text: @_text</p>
+<p role="status">Current text: @_text @_count</p>
+<p role="status">Keys: @_keys</p>
 
 <button class="btn btn-primary" @onclick="SetItem">Click me</button>
 
 @code {
     private string? _text;
+    private int _count = 0;
+    private string _keys = string.Empty;
 
     private async Task SetItem()
     {
         await LocalStorageService.SetItem("Say", "Hello World");
         _text = await LocalStorageService.GetItem("Say");
+        _count = await LocalStorageService.GetLength();
+
+        var keys = await LocalStorageService.GetKeys();
+        _keys = string.Join(',', keys);
     }
 
 }
