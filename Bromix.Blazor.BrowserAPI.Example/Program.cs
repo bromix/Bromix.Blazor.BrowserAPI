@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services
     .AddBrowserApi()
-    .AddClipboardService();
+    .AddClipboardService()
+    .AddHistoryService();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 

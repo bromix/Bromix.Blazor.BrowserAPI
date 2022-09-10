@@ -7,4 +7,10 @@ public interface IBrowserApiBuilder
     /// </summary>
     /// <returns></returns>
     IBrowserApiBuilder AddClipboardService();
+
+    /// <summary>
+    /// Adds the <see cref="IHistoryService"/>.
+    /// </summary>
+    /// <returns></returns>
+    IBrowserApiBuilder AddHistoryService();
 }

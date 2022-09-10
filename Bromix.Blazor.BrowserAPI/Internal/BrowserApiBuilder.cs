@@ -15,5 +15,11 @@ internal class BrowserApiBuilder : IBrowserApiBuilder
         return this;
     }
 
+    public IBrowserApiBuilder AddHistoryService()
+    {
+        _services.AddScoped<IHistoryService, HistoryService>();
+        return this;
+    }
+
     private readonly IServiceCollection _services;
 }
