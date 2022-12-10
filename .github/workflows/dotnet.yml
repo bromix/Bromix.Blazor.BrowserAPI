@@ -2,14 +2,13 @@ name: .NET
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "dev" ]
   pull_request:
-    branches: [ "dev" ]
+    branches:
+      - main
+      - dev
 
 env:
-  VersionAppendix: -alpha-${{ github.run_number }}
-  Version: '0.0.1'
+  Version: '1.0.0'
 
 jobs:
   build:
@@ -18,6 +17,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Set pre-release version
+        run: echo "PACKAGE_VERSION=${{ env.Version }}-alpha-${{ github.run_number }}" >> $GITHUB_ENV
+        if: github.base_ref  == 'dev'
+      - name: Set release version
+        run: echo "PACKAGE_VERSION=${{ env.Version }}.${{ github.run_number }}" >> $GITHUB_ENV
+        if: github.base_ref  == 'main'
       - name: Setup .NET
         uses: actions/setup-dotnet@v2
         with:
@@ -25,11 +30,13 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build -c Release -p:Version=${{ env.Version }}${{ env.VersionAppendix }}
-      - name: Test
-        run: dotnet pack -c Release -p:Version=${{ env.Version }}${{ env.VersionAppendix }}
-      - name: Provide download
-        uses: actions/upload-artifact@v3
-        with:
-          name: nugetpackage
-          path: '**/*.nupkg'
+        run: dotnet build -c Release -p:Version=${{ env.PACKAGE_VERSION }}
+      - name: Pack
+        run: dotnet pack -c Release -p:Version=${{ env.PACKAGE_VERSION }}
+      - name: Push to nuget 
+        run: dotnet nuget push Bromix.MudBlazor.MaterialDesignIcons/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
+      # - name: Provide download
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: nugetpackage
+      #     path: '**/*.nupkg'
