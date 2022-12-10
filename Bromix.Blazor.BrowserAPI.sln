@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bromix.Blazor.BrowserAPI", "Bromix.Blazor.BrowserAPI\Bromix.Blazor.BrowserAPI.csproj", "{CEFD699A-F30E-4DE0-BB50-85B8175AE70F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bromix.Blazor.BrowserAPI.Example", "Bromix.Blazor.BrowserAPI.Example\Bromix.Blazor.BrowserAPI.Example.csproj", "{739EA29D-F7DC-488F-8B72-601FA2F5F31C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEFD699A-F30E-4DE0-BB50-85B8175AE70F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEFD699A-F30E-4DE0-BB50-85B8175AE70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEFD699A-F30E-4DE0-BB50-85B8175AE70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEFD699A-F30E-4DE0-BB50-85B8175AE70F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{739EA29D-F7DC-488F-8B72-601FA2F5F31C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{739EA29D-F7DC-488F-8B72-601FA2F5F31C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{739EA29D-F7DC-488F-8B72-601FA2F5F31C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{739EA29D-F7DC-488F-8B72-601FA2F5F31C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
