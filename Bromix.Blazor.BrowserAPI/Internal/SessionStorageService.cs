@@ -2,7 +2,7 @@
 
 namespace Bromix.Blazor.BrowserAPI.Internal;
 
-internal class SessionStorageService : AbstractStorage, ISessionStorageService
+internal sealed class SessionStorageService : AbstractStorage, ISessionStorageService
 {
     public SessionStorageService(IJSRuntime jsRuntime) : base(jsRuntime, "sessionStorage")
     {

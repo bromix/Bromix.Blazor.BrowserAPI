@@ -2,7 +2,7 @@
 
 namespace Bromix.Blazor.BrowserAPI.Internal;
 
-internal class ClipboardService : IClipboardService
+internal sealed class ClipboardService : IClipboardService
 {
     public ClipboardService(IJSRuntime jsRuntime)
     {

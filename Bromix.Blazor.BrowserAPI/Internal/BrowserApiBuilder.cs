@@ -2,7 +2,7 @@
 
 namespace Bromix.Blazor.BrowserAPI.Internal;
 
-internal class BrowserApiBuilder : IBrowserApiBuilder
+internal sealed class BrowserApiBuilder : IBrowserApiBuilder
 {
     public BrowserApiBuilder(IServiceCollection services)
     {

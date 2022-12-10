@@ -2,7 +2,7 @@
 
 namespace Bromix.Blazor.BrowserAPI.Internal;
 
-internal class HistoryService : IHistoryService
+internal sealed class HistoryService : IHistoryService
 {
     public HistoryService(IJSRuntime jsRuntime)
     {

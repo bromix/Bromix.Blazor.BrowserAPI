@@ -6,7 +6,7 @@ namespace Bromix.Blazor.BrowserAPI.Extensions.Microsoft.DependencyInjection;
 public static class BrowserApiExtensions
 {
     /// <summary>
-    /// Adds services for accessing the browsers API.
+    /// Adds services for accessing the browser API.
     /// </summary>
     /// <param name="services"></param>
     /// <returns></returns>
